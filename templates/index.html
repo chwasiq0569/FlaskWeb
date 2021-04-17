@@ -58,14 +58,14 @@
     <!-- Optional JavaScript; choose one of the two! -->
     <div class="container mt-5">
         <h3>Create a Todo</h3>
-        <form>
+        <form action="/" method="POST">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" aria-describedby="emailHelp">
+                <input type="text" name="title" class="form-control" id="title" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="desc" class="form-label">Description</label>
-                <input type="text" class="form-control" id="desc">
+                <input type="text" name="desc" class="form-control" id="desc">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
