@@ -12,16 +12,22 @@ class Todo(db.Model):
     sno = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
     desc = db.Column(db.String(500), nullable=False)
+    # name = db.Column(db.String(500), nullable=False)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
         return f"{self.sno} - {self.title}"
 
+# / return f"{self.sno} - {self.title}"
+
 
 @app.route("/")
 def HelloWorld():
-    return render_template("index.html")
-    # return "<h1>HELLO WORLD</h1>"
+    todo = Todo(title="First Todo", desc="Start investing in Stock Market")
+    db.session.add(todo)
+    db.session.commit()
+    allTodo = Todo.query.all()
+    return render_template("index.html", allTodo=allTodo)
 
 
 if __name__ == "__main__":

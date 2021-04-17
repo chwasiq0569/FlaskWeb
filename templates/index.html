@@ -77,19 +77,22 @@
             <thead>
                 <tr>
                     <th scope="col">SNo</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Time</th>
                 </tr>
             </thead>
             <tbody>
+                {% for todo in allTodo %}
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <th scope="row">{{loop.index}}</th>
+                    <td>{{todo.title}}</td>
+                    <td>{{todo.desc}}</td>
+                    <td>{{todo.date_created}}</td>
                 </tr>
-                <tr>
+                {% endfor %}
+
+                <!-- <tr>
                     <th scope="row">2</th>
                     <td>Jacob</td>
                     <td>Thornton</td>
@@ -99,7 +102,7 @@
                     <th scope="row">3</th>
                     <td colspan="2">Larry the Bird</td>
                     <td>@twitter</td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
 
